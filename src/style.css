@@ -7,9 +7,9 @@ body {
     overflow-x: hidden;
 }
 
-.root {
+/* .root {
     --menu-height: 10px;
-}
+} */
 
 #navbar-icon {
     pointer-events: none;
@@ -27,7 +27,7 @@ body {
 }
 
 #mobile-menu.open {
-    height: var(--menu-height);
+    height: 192px;
 }
 
 #mobile-menu.close {
@@ -125,8 +125,54 @@ section.section:is(.section-light,.section-dark) a:hover::before {
     transform: scaleX(1);
 }
 
-#map-1 {
+#emission-map {
     width: 70%;
     height: 500px;
     border-radius: 10px;
+}
+
+#chloropleth-map {
+    border-radius: 10px;
+    background-color: #AAD3DF;
+    padding: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    /* opacity: 0.9;
+    -webkit-transition: .2s;
+    transition: opacity .2s; */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    background: #045faa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #045faa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.4);
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.4);
 }

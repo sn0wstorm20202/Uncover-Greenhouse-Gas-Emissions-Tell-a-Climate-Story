@@ -9,22 +9,31 @@
 
         <!-- Favicon -->
         <link rel="icon" href="res/favicon.svg">
-        
         <!-- Stylesheet -->
         <link rel="stylesheet" href="src/style.css" />
 
+        <!-- Actor Logic (for e.g., for event handling in menus and such) -->
+        <script src="src/actor-logic.js"></script>
+
         <!-- Tailwind.css -->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-
         <!-- Leaflet.js -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
-
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <!-- Georaster.js  -->
+        <script src="https://unpkg.com/georaster"></script>
+        <!-- Leaflet.js Georaster Layer Plugin -->
+        <script src="https://unpkg.com/georaster-layer-for-leaflet/dist/georaster-layer-for-leaflet.min.js"></script>
         <!-- ScrollReveal.js -->
         <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!-- Actor Logic (for e.g., for menus and such) -->
-        <script src="src/actor-logic.js"></script>
+        <!-- ScrollMagic.js -->
+        <script src="https://unpkg.com/scrollmagic@2.0.7/scrollmagic/uncompressed/ScrollMagic.min.js"></script>
+        <!-- Chart.js -->
+        <script src="https://unpkg.com/chart.js"></script>
+        <!-- D3.js -->
+        <script src="https://unpkg.com/d3"></script>
+        <!-- Viewer.js -->
+        <script src="https://unpkg.com/viewerjs"></script>
     </head>
     <body>
         <nav id="navbar" class="bg-gray-800 p-2 mt-0 fixed w-full top-0">
@@ -90,10 +99,10 @@
             </div>
         </section>
         <section class="section section-light">
-            <div class="reveal-left">
-                <h1 class="text-gray-900 dark:text-white text-2xl md:text-4xl font-extrabold mb-2">Section One</h1>
+            <div class="reveal-left text-lg font-normal dark:text-gray-500 dark:text-gray-400">
+                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Section One</h1>
                 <hr>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                <p>
                     <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
                         amet odio est laborum obcaecati perferendis! Mollitia officiis,
                         consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
@@ -108,24 +117,44 @@
                     <a href="#">Link</a>
                 </p>
                 <a href="#">Link 2</a>
+                <p>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
+                        amet odio est laborum obcaecati perferendis! Mollitia officiis,
+                        consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
+                        Atque laborum repudiandae adipisci nihil. Natus cum sapiente culpa
+                        excepturi quasi magni quibusdam ipsum accusamus laborum, numquam odit!
+                        Nisi repudiandae cumque incidunt tempora explicabo vero in corporis
+                        provident quidem quisquam sit, asperiores ullam placeat ut iure pariatur
+                        ratione laboriosam totam amet minus. Porro, quam quisquam explicabo
+                        rerum labore, tempora officia eveniet mollitia iure a fugiat, magnam at.
+                        Vero magni aliquam ea molestias omnis, quia fuga architecto maiores ut
+                        magnam! Culpa, cum. Blanditiis, tempore temporibus.</span>
+                </p>
             </div>
         </section>
         <section class="img-section-2">
             <div class="reveal-right">
                 <div class="container mx-auto p-4 text-center text-white">
-                    <p class="text-3xl text-lg font-semibold">Something goes here!</p>
+                    <p class="text-3xl text-lg font-semibold">A raster emission map displaying greenhouse emission over the years</p>
                 </div>
                 <div class="flex justify-center">
-                    <div id="map-1"></div>
+                    <div id="emission-map"></div>
                 </div>
-                <script src="src/map-plot.js"></script>
+                <div class="flex justify-center">
+                    <div class="flex items-center gap-x-4 w-1/2 mt-8">
+                        <label for="date-range" class="text-lg font-normal text-white flex-none">Jan 1, 2015</label>
+                        <input oninput="onDateChange()" id="date-range" title="Use the slider to observe changes in greenhouse emissions over the years." type="range" min="1" max="2616" value="2000" class="slider grow">
+                        <label for="date-range" class="text-lg font-normal text-white flex-none">Feb 28, 2022</label>
+                    </div>
+                </div>
+                <script src="src/emission-plot.js"></script>
             </div>
         </section>
         <section class="section section-light">
-            <div class="reveal-left">
-                <h1 class="text-gray-900 dark:text-white text-2xl md:text-4xl font-extrabold mb-2">Section Two</h1>
+            <div class="reveal-left text-lg font-normal dark:text-gray-500 dark:text-gray-400">
+                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Section Two</h1>
                 <hr>
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400">
+                <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
                     amet odio est laborum obcaecati perferendis! Mollitia officiis,
                     consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
@@ -145,6 +174,10 @@
                 <div class="container mx-auto p-4 text-center text-white">
                     <p class="text-3xl text-lg font-semibold">Something goes here!</p>
                 </div>
+                <div class="flex justify-center">
+                    <svg id="chloropleth-map" width="70%" height="600px" viewBox="-0.5 -192.19200134277344 961 750.6920166015625" preserveAspectRatio="xMidYMin"></svg>
+                </div>
+                <script src="src/chloropleth-plot.js"></script>
             </div>
         </section>
         <section class="section section-dark">

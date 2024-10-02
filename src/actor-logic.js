@@ -1,5 +1,7 @@
 function menuToggle() {
-    const isMenuOpen = document.getElementById("menu-icon-open").classList.contains("block");
+    const isMenuOpen = document
+        .getElementById("menu-icon-open")
+        .classList.contains("block");
 
     document.getElementById("menu-icon-open").classList.remove("block");
     document.getElementById("menu-icon-open").classList.remove("hidden");
