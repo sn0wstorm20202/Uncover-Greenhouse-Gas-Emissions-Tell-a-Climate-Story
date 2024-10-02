@@ -1,0 +1,132 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.root {
+    --menu-height: 10px;
+}
+
+#navbar-icon {
+    pointer-events: none;
+}
+
+#navbar {
+    z-index: 1001;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.7);
+}
+
+#mobile-menu {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+
+#mobile-menu.open {
+    height: var(--menu-height);
+}
+
+#mobile-menu.close {
+    height: 0;
+}
+
+.img-section-1 {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.3), 
+            rgba(0, 0, 0, 0.6)
+        ),
+        url(../res/ghgc1.jpg);
+    min-height: calc(100%);
+}
+
+.img-section-2 {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6), 
+            rgba(0, 0, 0, 0.6)
+        ),
+        url(../res/ghgc2.jpg);
+    min-height: 400px;
+}
+
+.img-section-3 {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.6), 
+            rgba(0, 0, 0, 0.6)
+        ),
+        url(../res/ghgc3.jpg);
+    min-height: 400px;
+}
+
+.img-section-1, .img-section-2, .img-section-3 {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 50px 0;
+}
+
+.section {
+    padding: 50px 80px;
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+.section hr {
+    border-color: #5d6266;
+    margin: 5px 0;
+}
+
+.section-light {
+    background-color: #f4f4f4;
+    color: #666;
+}
+
+.section-dark {
+    background-color: #282e34;
+    color: #ddd;
+}
+
+section.section:is(.section-light,.section-dark) a {
+    position: relative;
+    color: #285cbe;
+    font-weight: semi-bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+section.section:is(.section-light,.section-dark) a:hover {
+    color: #5483da;
+}
+
+section.section:is(.section-light,.section-dark) a::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #285cbe;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: 0.3s ease;
+}
+
+section.section:is(.section-light,.section-dark) a:hover::before {
+    background-color: #5483da;
+    transform: scaleX(1);
+}
+
+#map-1 {
+    width: 70%;
+    height: 500px;
+    border-radius: 10px;
+}
