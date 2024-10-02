@@ -3,9 +3,9 @@ document.documentElement.style.setProperty("--menu-height", `${document.getEleme
 ScrollReveal({
     reset: true,
     distance: '30px',
-    duration: 1000,
+    duration: 2000,
     delay: 100,
-    interval: 400
+    interval: 800
 })
 
 ScrollReveal().reveal('.reveal-top', { origin: 'top' });
