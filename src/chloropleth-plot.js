@@ -17,7 +17,7 @@ const projection = d3.geoMercator();
 const data = new Map();
 const colorScale = d3
     .scaleThreshold()
-    .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
+    .domain([6, 10, 100, 800, 1000, 5000, 10000, 30000, 40000, 65000])
     .range(d3.schemeReds[8]);
 
 // Load external data and boot
@@ -26,9 +26,9 @@ Promise.all([
         "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
     ),
     d3.csv(
-        "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
+        "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemissiontotals.csv",
         function (d) {
-            data.set(d["Code"], +d["1970"]);
+            data.set(d["Code"], +d["2023"] * 1000);
         }
     ),
 ]).then(function (loadData) {
@@ -54,7 +54,8 @@ Promise.all([
     };
 
     let mouseClick = function (_, d) {
-        console.log(d.properties["Country"]);
+        console.log(d["2023"]);
+        console.log(d.properties.name);
     };
 
     // Draw the map
