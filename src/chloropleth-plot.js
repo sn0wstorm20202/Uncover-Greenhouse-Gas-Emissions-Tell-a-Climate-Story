@@ -17,7 +17,7 @@ const projection = d3.geoMercator();
 const data = new Map();
 const colorScale = d3
     .scaleThreshold()
-    .domain([0, 90, 90, 1000, 2000, 5000, 6000, 80000])
+    .domain([1, 90, 90, 1000, 2000, 5000, 6000, 80000])
     .range(d3.schemeReds[8]);
 
 // Load external data and boot
@@ -37,15 +37,15 @@ Promise.all([
     let mouseOver = function (_) {
         d3.selectAll(".Country")
             .transition()
-            .duration(200)
-            .style("opacity", 0.6);
+            .duration(150)
+            .style("opacity", 0.6).style("stroke-width", "1px");
         // .style("stroke", "transparent");
-        d3.select(this).transition().duration(200).style("opacity", 1);
+        d3.select(this).transition().duration(100).style("opacity", 1).style("stroke-width", "2px");
         // .style("stroke", "black");
     };
 
     let mouseLeave = function (_) {
-        d3.selectAll(".Country").transition().duration(200).style("opacity", 0.8);
+        d3.selectAll(".Country").transition().duration(150).style("opacity", 0.8).style("stroke-width", "1px");
         // .style("stroke", "transparent");
         // d3.select(this)
         //     .transition()
@@ -54,8 +54,7 @@ Promise.all([
     };
 
     let mouseClick = function (_, d) {
-        console.log(d["2023"]);
-        console.log(d.properties.name);
+        console.log(d.properties.name, d.total);
     };
 
     // Draw the map
