@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Cache-control" content="public">
 
         <title>GHG Impact Visualizer</title>
 
@@ -101,7 +102,7 @@
         <section class="section section-light">
             <div class="reveal-left text-lg font-normal dark:text-gray-500 dark:text-gray-400">
                 <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Section One</h1>
-                <hr>
+                <hr class="rule-pad">
                 <p>
                     <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
                         amet odio est laborum obcaecati perferendis! Mollitia officiis,
@@ -114,9 +115,9 @@
                         rerum labore, tempora officia eveniet mollitia iure a fugiat, magnam at.
                         Vero magni aliquam ea molestias omnis, quia fuga architecto maiores ut
                         magnam! Culpa, cum. Blanditiis, tempore temporibus.</span>
-                    <a href="#">Link</a>
+                    <a class="hyperlink" href="#">Link</a>
                 </p>
-                <a href="#">Link 2</a>
+                <a class="hyperlink" href="#">Link 2</a>
                 <p>
                     <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
                         amet odio est laborum obcaecati perferendis! Mollitia officiis,
@@ -143,7 +144,7 @@
                 <div class="flex justify-center">
                     <div class="flex items-center gap-x-4 w-1/2 mt-8">
                         <label for="date-range" class="text-lg font-normal text-white flex-none">Jan 1, 2015</label>
-                        <input oninput="onDateChange()" id="date-range" title="Use the slider to observe changes in greenhouse emissions over the years." type="range" min="1" max="2616" value="2000" class="slider grow">
+                        <input oninput="onDateChange()" id="date-range" title="Use the slider to observe changes in greenhouse emissions over the years." type="range" min="1" max="2616" value="2616" class="slider grow">
                         <label for="date-range" class="text-lg font-normal text-white flex-none">Feb 28, 2022</label>
                     </div>
                 </div>
@@ -176,9 +177,38 @@
                 </div>
                 <div class="flex justify-center">
                     <div class="chloropleth-container">
-                        <svg id="chloropleth-map" width="100%" height="100%" viewBox="-0.5 -192.19200134277344 961 750.6920166015625" preserveAspectRatio="xMidYMid"></svg>
+                        <div id="visualization-id" class="visualization flex-auto flex-col">
+                            <div class="flex items-center">
+                                <span class="flex-auto text-center" id="visualization-title">Global Emission Analysis</span>
+                                <div class="w-fit">
+                                    <svg id="visualization-close-button" onclick="onVisualizationCloseClick()" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="4 4 16 16">
+                                        <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <hr class="mt-2">
+
+                            <div class="flex-auto chart-container mt-2">
+                                <div class="chart">
+                                    <canvas id="bar-chart" width="100%" height="100%"></canvas>
+                                </div>
+                                <hr class="rule-margin">
+                                <div class="chart">
+                                    <canvas id="pie-chart-1" width="100%" height="100%"></canvas>
+                                </div>
+                                <hr class="rule-margin">
+                                <div class="chart">
+                                    <canvas id="pie-chart-2" width="100%" height="100%"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-auto">
+                            <svg id="chloropleth-map" width="100%" height="100%" viewBox="-0.5 -192.19200134277344 961 750.6920166015625" preserveAspectRatio="xMidYMid"></svg>
+                        </div>
                     </div>
                 </div>
+                <script src="src/chart-manager.js"></script>
                 <script src="src/chloropleth-plot.js"></script>
             </div>
         </section>

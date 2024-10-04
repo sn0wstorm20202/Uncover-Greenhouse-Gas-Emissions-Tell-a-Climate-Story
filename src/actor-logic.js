@@ -24,3 +24,7 @@ function menuToggle() {
         document.getElementById("mobile-menu").classList.add("open");
     }
 }
+
+function onVisualizationCloseClick() {
+    document.getElementById("visualization-id").classList.add("closed");
+}

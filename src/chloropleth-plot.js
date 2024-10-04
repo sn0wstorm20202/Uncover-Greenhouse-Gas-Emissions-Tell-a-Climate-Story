@@ -159,6 +159,7 @@ const countryMappedData = {
     "United Republic of Tanzania": "TZA",
     Uganda: "UGA",
     Ukraine: "UKR",
+    "United Kingdom": "GBR",
     Uruguay: "URY",
     USA: "USA",
     Uzbekistan: "UZB",
@@ -193,15 +194,102 @@ const colorScale = d3
     .domain([1, 90, 90, 1000, 2000, 5000, 6000, 80000])
     .range(d3.schemeReds[8]);
 
+// Load CSV data for GHG emissions
+let emissionDataBySubstance = {
+    CO2: 0,
+    CH4: 0,
+    N2O: 0,
+    Fluorocarbons: 0,
+};
+let emissionDataBySector = {
+    "Agriculture": 0,
+    "Buildings": 0,
+    "Fuel Exploitation": 0,
+    "Industrial Combustion": 0,
+    "Power Industry": 0,
+    "Processes": 0,
+    "Transport": 0,
+    "Waste": 0,
+};
+let emissionDataByYear = {
+    "2023": 0,
+    "2022": 0,
+    "2021": 0,
+    "2020": 0,
+    "2019": 0,
+    "2018": 0,
+    "2017": 0,
+    "2016": 0,
+    "2015": 0,
+    "2014": 0,
+    "2013": 0,
+    "2012": 0,
+    "2011": 0,
+    "2010": 0,
+    "2009": 0,
+    "2008": 0,
+    "2007": 0,
+    "2006": 0,
+    "2005": 0,
+    "2004": 0,
+    "2003": 0,
+    "2002": 0,
+    "2001": 0,
+    "2000": 0,
+    "1999": 0,
+    "1998": 0,
+    "1997": 0,
+    "1996": 0,
+    "1995": 0,
+    "1994": 0,
+    "1993": 0,
+    "1992": 0,
+    "1991": 0,
+    "1990": 0,
+    "1989": 0,
+    "1988": 0,
+    "1987": 0,
+    "1986": 0,
+    "1985": 0,
+    "1984": 0,
+    "1983": 0,
+    "1982": 0,
+    "1981": 0,
+    "1980": 0,
+    "1979": 0,
+    "1978": 0,
+    "1977": 0,
+    "1976": 0,
+    "1975": 0,
+    "1974": 0,
+    "1973": 0,
+    "1972": 0,
+    "1971": 0,
+    "1970": 0,
+}
+d3.csv(
+    "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
+    function (d) {
+        let country = emissionData[d["Code"]];
+        if (country) {
+
+        } else {
+
+        }
+    }
+);
+
+let year = 2023;
+
 // Load external data and boot
 Promise.all([
     d3.json(
-        "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
+        "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/world.geojson"
     ),
     d3.csv(
         "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemissiontotals.csv",
         function (d) {
-            data.set(d["Code"], +d["2023"]);
+            data.set(d["Code"], +d[year.toString()]);
         }
     ),
 ]).then(function (loadData) {
@@ -238,6 +326,10 @@ Promise.all([
     let mouseClick = function (_, d) {
         const countryCode = countryMappedData[d.properties.name];
         if (countryCode) {
+            if (document.getElementById("visualization-id").classList.contains("closed")) {
+                document.getElementById("visualization-id").classList.remove("closed");
+            }
+            document.getElementById('visualization-title').innerText = `${d.properties.name}'s Emission Analysis`;
             console.log(d.properties.name, d.total, countryCode);
         }
     };
