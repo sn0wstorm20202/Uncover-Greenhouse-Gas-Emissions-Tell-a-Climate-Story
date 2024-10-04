@@ -133,8 +133,13 @@ section.section:is(.section-light,.section-dark) a:hover::before {
 
 #chloropleth-map {
     border-radius: 10px;
-    background-color: #AAD3DF;
+    background-color: #ebebeb;
     padding: 10px;
+}
+
+.chloropleth-container {
+    width: 70%;
+    height: 600px;
 }
 
 .slider {
