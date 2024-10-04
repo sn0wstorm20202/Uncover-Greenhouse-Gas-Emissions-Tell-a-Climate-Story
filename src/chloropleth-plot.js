@@ -28,7 +28,7 @@ Promise.all([
     d3.csv(
         "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
         function (d) {
-            data.set(d.code, +d.pop);
+            data.set(d["Code"], +d["1970"]);
         }
     ),
 ]).then(function (loadData) {
@@ -54,7 +54,7 @@ Promise.all([
     };
 
     let mouseClick = function (_, d) {
-        console.log(d.properties.name);
+        console.log(d.properties["Country"]);
     };
 
     // Draw the map
