@@ -135,16 +135,27 @@ a.hyperlink:hover::before {
 .chloropleth-container {
     display: flex;
     width: 70%;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .chloropleth-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .visualization.closed {
+        height: 0;
+    }
 }
 
 .visualization {
     border-radius: 10px;
     background-color: #ebebeb;
     padding: 10px;
-    max-width: 30%;
+    max-width: 40%;
     min-width: 222px;
     height: 600px;
     transition: 0.3s ease-in;

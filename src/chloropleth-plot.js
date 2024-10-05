@@ -267,19 +267,24 @@ let emissionDataByYear = {
     "1971": 0,
     "1970": 0,
 }
-d3.csv(
-    "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
-    function (d) {
-        let country = emissionData[d["Code"]];
-        if (country) {
+// d3.csv(
+//     "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
+//     function (d) {
+//         let country = emissionData[d["Code"]];
+//         if (country) {
 
-        } else {
+//         } else {
 
-        }
-    }
-);
+//         }
+//     }
+// );
 
 let year = 2023;
+
+function onYearChange() {
+    year = document.getElementById("year-range").value;
+    console.log(year);
+}
 
 // Load external data and boot
 Promise.all([
