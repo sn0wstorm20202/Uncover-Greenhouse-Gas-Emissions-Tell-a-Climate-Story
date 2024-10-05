@@ -135,7 +135,8 @@ a.hyperlink:hover::before {
 .chloropleth-container {
     display: flex;
     width: 70%;
-    height: 600px;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -144,6 +145,8 @@ a.hyperlink:hover::before {
     background-color: #ebebeb;
     padding: 10px;
     max-width: 30%;
+    min-width: 222px;
+    height: 600px;
     transition: 0.3s ease-in;
     position: relative;
     overflow: hidden;
@@ -151,6 +154,7 @@ a.hyperlink:hover::before {
 
 .visualization.closed {
     max-width: 0;
+    min-width: 0;
     padding: 0;
 }
 
@@ -179,7 +183,7 @@ a.hyperlink:hover::before {
 
 .chart-container {
     overflow-x: hidden;
-    height: 93%;
+    height: 96%;
 }
 
 .chart {

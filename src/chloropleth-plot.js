@@ -329,7 +329,7 @@ Promise.all([
             if (document.getElementById("visualization-id").classList.contains("closed")) {
                 document.getElementById("visualization-id").classList.remove("closed");
             }
-            document.getElementById('visualization-title').innerText = `${d.properties.name}'s Emission Analysis`;
+            document.getElementById('visualization-title').innerText = `${d.properties.name}'s Emission Analysis (${year})`;
             console.log(d.properties.name, d.total, countryCode);
         }
     };
