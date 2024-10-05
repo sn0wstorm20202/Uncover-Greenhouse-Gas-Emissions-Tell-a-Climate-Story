@@ -36,6 +36,8 @@ let chart1 = new Chart(ctx, {
             },
         },
     },
+    responsive: true,
+    maintainAspectRatio: false,
 });
 
 let chart2 = new Chart(ctx2, {
@@ -61,6 +63,8 @@ let chart2 = new Chart(ctx2, {
                 position: "bottom",
             },
         },
+        responsive: true,
+        maintainAspectRatio: false,
     },
 });
 
@@ -96,5 +100,7 @@ let chart3 = new Chart(ctx3, {
                 position: "bottom",
             },
         },
+        responsive: true,
+        maintainAspectRatio: false,
     },
 });

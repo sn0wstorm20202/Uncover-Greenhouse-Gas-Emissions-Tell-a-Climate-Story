@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -66,8 +67,18 @@ body {
 
 .section {
     padding: 50px 80px;
-    text-align: justify;
+    /* text-align: justify; */
     font-size: 1.2em;
+}
+
+/* .section:before { content: ''; display: block; position: relative; width: 0; height: 5em; margin-top: -5em } */
+
+.expanded-line {
+    line-height: 32px;
+}
+
+.para-indent {
+    text-indent: 3ch;
 }
 
 hr {
@@ -139,6 +150,10 @@ a.hyperlink:hover::before {
     gap: 10px;
 }
 
+.map-container {
+    height: 600px;
+}
+
 @media screen and (max-width: 1200px) {
     .chloropleth-container {
         flex-wrap: wrap;
@@ -194,7 +209,7 @@ a.hyperlink:hover::before {
 
 .chart-container {
     overflow-x: hidden;
-    height: 96%;
+    height: 93%;
 }
 
 .chart {
@@ -266,4 +281,16 @@ a.hyperlink:hover::before {
 /* Handle on hover */
 .chart-container::-webkit-scrollbar-thumb:hover {
     background: #464646;
+}
+
+.para-img {
+    float: right;
+    border-radius: 5px;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s ease;
+}
+
+.para-img:hover {
+    transform: scale(1.1);
 }

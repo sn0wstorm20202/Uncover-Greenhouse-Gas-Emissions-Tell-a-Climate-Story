@@ -25,10 +25,10 @@
         <script src="https://unpkg.com/georaster"></script>
         <!-- Leaflet.js Georaster Layer Plugin -->
         <script src="https://unpkg.com/georaster-layer-for-leaflet/dist/georaster-layer-for-leaflet.min.js"></script>
-        <!-- ScrollReveal.js -->
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <!-- ScrollMagic.js -->
-        <script src="https://unpkg.com/scrollmagic@2.0.7/scrollmagic/uncompressed/ScrollMagic.min.js"></script>
+        <!-- GSAP -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <!-- GSAP ScrollTrigger -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
         <!-- Chart.js -->
         <script src="https://unpkg.com/chart.js"></script>
         <!-- D3.js -->
@@ -72,8 +72,8 @@
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Impacts and Analysis</a>
+                        <a href="#section-1" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
+                        <a href="#section-2" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Impacts and Analysis</a>
                         <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Solutions</a>
                         <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">References and Attributions</a>
                         </div>
@@ -86,51 +86,39 @@
             <div class="sm:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
+                    <a href="#section-1" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Impacts and Analysis</a>
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Solutions</a>
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">References and Attributions</a>
                 </div>
             </div>
         </nav>
-        <section class="img-section-1 flex justify-center items-center">
+        <section id="section-1" class="img-section-1 flex justify-center items-center">
             <div class="text-white text-center py-4 reveal-bottom">
                 <h1 class="text-6xl font-bold">Greenhouse Gases</h1>
                 <p class="text-3xl mt-4 font-semibold"> and their Impact on Climate Change.</p>
             </div>
         </section>
-        <section class="section section-light">
+        <section id="section-2" class="section section-light">
             <div class="reveal-left text-lg font-normal dark:text-gray-500 dark:text-gray-400">
-                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Section One</h1>
+                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Introduction:</h1>
                 <hr class="rule-pad">
-                <p>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
-                        amet odio est laborum obcaecati perferendis! Mollitia officiis,
-                        consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
-                        Atque laborum repudiandae adipisci nihil. Natus cum sapiente culpa
-                        excepturi quasi magni quibusdam ipsum accusamus laborum, numquam odit!
-                        Nisi repudiandae cumque incidunt tempora explicabo vero in corporis
-                        provident quidem quisquam sit, asperiores ullam placeat ut iure pariatur
-                        ratione laboriosam totam amet minus. Porro, quam quisquam explicabo
-                        rerum labore, tempora officia eveniet mollitia iure a fugiat, magnam at.
-                        Vero magni aliquam ea molestias omnis, quia fuga architecto maiores ut
-                        magnam! Culpa, cum. Blanditiis, tempore temporibus.</span>
-                    <a class="hyperlink" href="#">Link</a>
-                </p>
-                <a class="hyperlink" href="#">Link 2</a>
-                <p>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
-                        amet odio est laborum obcaecati perferendis! Mollitia officiis,
-                        consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
-                        Atque laborum repudiandae adipisci nihil. Natus cum sapiente culpa
-                        excepturi quasi magni quibusdam ipsum accusamus laborum, numquam odit!
-                        Nisi repudiandae cumque incidunt tempora explicabo vero in corporis
-                        provident quidem quisquam sit, asperiores ullam placeat ut iure pariatur
-                        ratione laboriosam totam amet minus. Porro, quam quisquam explicabo
-                        rerum labore, tempora officia eveniet mollitia iure a fugiat, magnam at.
-                        Vero magni aliquam ea molestias omnis, quia fuga architecto maiores ut
-                        magnam! Culpa, cum. Blanditiis, tempore temporibus.</span>
-                </p>
+                <div class="mt-2">
+                    <img src="res/img1.jpeg" class="para-img mt-2 ml-2" alt="image">
+                    <span class="expanded-line"><em class="font-bold">Climate change</em> is one of the most pressing global challenges of our time. The primary driver behind this phenomenon is the <em class="font-semibold">increase in greenhouse gases (GHGs)</em> in the atmosphere, which trap heat from the Sun and contribute to the Earth's rising temperatures. Greenhouse gases such as <em class="font-semibold">carbon dioxide (CO₂)</em> and <em class="font-semibold">methane (CH₄)</em> play a critical role in climate change by enhancing the atmosphere's ability to trap heat, leading to a cascade of environmental impacts.</span>
+                    <!-- <a class="hyperlink" href="#">Link</a> -->
+                    <ul class="list-disc ml-10 mt-4 expanded-line">
+                        <li><em class="font-bold underline">Greenhouse gases (GHGs)</em> are gases that trap heat from the Sun, contributing to the greenhouse effect that warms the Earth’s atmosphere.
+                        <li><em class="font-bold underline">Fossil fuels</em>, such as petroleum, coal, and natural gas, are hydrocarbons that, when burned for energy, release significant amounts of CO₂ into the atmosphere.</li>
+                        <li><em class="font-bold underline">Carbon dioxide (CO₂)</em> is a naturally occurring gas, but human activities—such as the burning of fossil fuels, deforestation, and industrial processes—are leading to a sharp rise in CO₂ levels. CO₂ is the primary contributor to global warming.</li>
+                        <li><em class="font-bold underline">Methane (CH₄)</em>, another potent greenhouse gas, is the major component of natural gas and is released through agricultural practices, the energy sector, and naturally occurring processes like the decay of organic matter in wetlands.</li>
+                    </ul>
+                </div>
+                <!-- <a class="hyperlink" href="#">Link 2</a> -->
+                <p class="mt-4 expanded-line para-indent">The burning of fossil fuels, deforestation, and industrial activities act as <em class="font-semibold">GHG sources</em>, adding harmful gases to the atmosphere. Conversely, ecosystems such as forests act as <em class="font-semibold">GHG sinks</em>, absorbing carbon dioxide through photosynthesis and storing it in plants and soils. Understanding the delicate balance between these sources and sinks is key to addressing climate change.</p>
+                <p class="mt-4 expanded-line">To manage and limit global warming, the concept of a <em class="font-semibold">carbon budget</em> is crucial. The <em class="font-semibold">global carbon budget</em> assesses sources and sinks of carbon and tracks changes in atmospheric CO₂ levels. The <em class="font-semibold">total carbon budget</em> refers to the maximum allowable human-caused CO₂ emissions if we are to keep global warming within safe limits, such as the 1.5°C or 2°C targets set by international agreements.</p>
+                <p class="mt-4 expanded-line">Different methods are used to estimate emissions, including <em class="font-semibold">top-down estimates</em>, which derive data from atmospheric observations, and <em class="font-semibold">bottom-up estimates</em>, based on land, ocean models, or human activity data. <em class="font-semibold">Lateral fluxes</em> represent the movement of carbon between different ecosystems, such as the flow of carbon from land to ocean systems via rivers.</p>
+                <p class="mt-4 expanded-line para-indent">Our project focuses on <span class="font-bold">visualizing these complex relationships</span> by providing an <em class="font-bold">accessible platform</em> where users can explore <em class="font-bold">year-on-year greenhouse gas emissions by country and by industry</em>. This interactive map allows anyone, from policymakers to the general public, to <em class="font-semibold">better understand the trends in emissions and their impact on climate change</em>. By offering a detailed analysis of emissions data, we hope to contribute to the global effort to combat climate change through informed decision-making and public awareness.</p>
             </div>
         </section>
         <section class="img-section-2">
@@ -151,22 +139,13 @@
                 <script src="src/emission-plot.js"></script>
             </div>
         </section>
-        <section class="section section-light">
+        <section id="section-3" class="section section-light">
             <div class="reveal-left text-lg font-normal dark:text-gray-500 dark:text-gray-400">
-                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Section Two</h1>
+                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">Impact</h1>
                 <hr>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam aut
-                    amet odio est laborum obcaecati perferendis! Mollitia officiis,
-                    consectetur vitae laborum eos expedita reprehenderit nostrum tempore.
-                    Atque laborum repudiandae adipisci nihil. Natus cum sapiente culpa
-                    excepturi quasi magni quibusdam ipsum accusamus laborum, numquam odit!
-                    Nisi repudiandae cumque incidunt tempora explicabo vero in corporis
-                    provident quidem quisquam sit, asperiores ullam placeat ut iure pariatur
-                    ratione laboriosam totam amet minus. Porro, quam quisquam explicabo
-                    rerum labore, tempora officia eveniet mollitia iure a fugiat, magnam at.
-                    Vero magni aliquam ea molestias omnis, quia fuga architecto maiores ut
-                    magnam! Culpa, cum. Blanditiis, tempore temporibus.
+                    <p class="mt-4 expanded-line">Over the past decade, we have witnessed unprecedented changes in our climate, including rising temperatures, extreme weather events, and disruptions to natural ecosystems. As GHG emissions continue to rise, so do the associated risks—ranging from rising sea levels to food insecurity and the displacement of vulnerable populations. The ability to track and analyze emissions at both the country and industry levels is critical to understanding how these emissions contribute to climate change.</p>
+                    <p class="mt-4 expanded-line para-indent">Our project goes beyond simply presenting data; it provides actionable insights. By visualizing year-on-year changes in emissions and breaking them down by industry, we offer a tool for policymakers, researchers, and advocates to pinpoint the areas of highest concern. Understanding these trends is the first step toward designing effective climate policies, implementing sustainable practices, and transitioning to a low-carbon economy.</p>
                 </p>
             </div>
         </section>
@@ -177,11 +156,11 @@
                 </div>
                 <div class="flex justify-center">
                     <div class="chloropleth-container">
-                        <div class="flex-auto" style="height: 600px;">
+                        <div class="flex-auto map-container">
                             <svg id="chloropleth-map" width="100%" height="100%" viewBox="-0.5 -192.19200134277344 961 750.6920166015625" preserveAspectRatio="xMidYMid"></svg>
                         </div>
                         <div id="visualization-id" class="visualization flex-auto flex-col">
-                            <div class="flex items-center">
+                            <div class="flex items-center" id="visualization-header">
                                 <span class="flex-auto text-center" id="visualization-title">Global Emission Analysis (2023)</span>
                                 <div class="w-fit ml-2">
                                     <svg id="visualization-close-button" onclick="onVisualizationCloseClick()" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="4 4 16 16">
