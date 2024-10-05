@@ -1,4 +1,4 @@
-let map = L.map("emission-map").setView([20, 0], 1.5);
+let map = L.map("emission-map").setView([80, 0], 1);
 
 // let baseMaps = {
 // "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
