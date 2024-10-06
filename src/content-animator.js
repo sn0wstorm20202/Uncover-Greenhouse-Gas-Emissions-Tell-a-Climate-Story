@@ -134,6 +134,7 @@ gsap.timeline({
     opacity: 0,
     marginLeft: 20,
     marginRight: -20,
+    zIndex: 0,
     duration: 1,
     delay: 4,
 }).to(".intro-text-2", {
@@ -178,6 +179,7 @@ gsap.timeline( {
 }).to(".impact-text-1", {
     opacity: 0,
     margin: 20,
+    zIndex: 0,
     duration: 1,
     delay: 4,
 }).to(".impact-text-2", {
