@@ -36,7 +36,7 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
     trigger: ".text-section-container",
-    start: "0 5%",
+    start: "0 10%",
     // end: "50% 0",
     onEnter: function() {
         toggleMenu('reference', true);
