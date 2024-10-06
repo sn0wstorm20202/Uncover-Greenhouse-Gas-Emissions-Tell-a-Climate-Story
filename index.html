@@ -39,8 +39,6 @@
         <script src="https://unpkg.com/chart.js"></script>
         <!-- D3.js -->
         <script src="https://unpkg.com/d3"></script>
-        <!-- Viewer.js -->
-        <!-- <script src="https://unpkg.com/viewerjs"></script> -->
     </head>
     <body>
         <nav id="navbar" class="p-2 mt-0 fixed w-full top-0 text-center">
@@ -123,39 +121,39 @@
                             <div class="flex space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a
-                                    href="#"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('home')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     aria-current="page"
                                     id="home-menu-item-id"
                                     >Home</a
                                 >
                                 <a
-                                    href="#Introduction"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('introduction')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     id="introduction-menu-item-id"
                                     >Introduction</a
                                 >
                                 <a
-                                    href="#Impacts"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('impacts')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     id="impacts-menu-item-id"
                                     >Impacts</a
                                 >
                                 <a
-                                    href="#Analysis"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('analysis')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     id="analysis-menu-item-id"
                                     >Analysis</a
                                 >
                                 <a
-                                    href="#Solutions"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('solutions')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     id="solutions-menu-item-id"
                                     >Solutions</a
                                 >
                                 <a
-                                    href="#References"
-                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                                    onclick="jumpTo('references')"
+                                    class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                                     id="references-menu-item-id"
                                     >References</a
                                 >
@@ -170,38 +168,38 @@
                 <div class="space-y-1 px-2 pb-3 pt-2">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a
-                        href="#"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('home')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="home-mobile-menu-item-id"
                         >Home</a
                     >
                     <a
-                        href="#Introduction"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('introduction')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="introduction-mobile-menu-item-id"
                         >Introduction</a
                     >
                     <a
-                        href="#Impacts"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('impacts')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="impacts-mobile-menu-item-id"
                         >Impacts</a
                     >
                     <a
-                        href="#Analysis"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('analysis')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="analysis-mobile-menu-item-id"
                         >Analysis</a
                     >
                     <a
-                        href="#Solutions"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('solutions')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="solutions-mobile-menu-item-id"
                         >Solutions</a
                     >
                     <a
-                        href="#References"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        onclick="jumpTo('references')"
+                        class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         id="references-mobile-menu-item-id"
                         >References</a
                     >
@@ -221,7 +219,7 @@
             </div>
             <div class="absolute text-white content-text-1" id="Introduction">
                 <div
-                    class="absolute flex justify-center items-center gap-2 w-5/6 intro-text-1"
+                    class="absolute flex justify-center items-center gap-x-6 w-5/6 intro-text-1"
                 >
                     <div class="content-box flex-auto">
                         <h1 class="content-heading font-bold underline">
@@ -283,20 +281,20 @@
                             </li>
                         </ul>
                     </div>
-                    <img
+                    <!-- <img
                         src="res/img1.jpg"
                         class="para-img flex-shrink"
                         title="Greenhouse Emission from smoke (Attribution: https://www.bbc.com)"
-                    />
+                    /> -->
                 </div>
                 <div
-                    class="absolute flex justify-center items-center gap-2 w-5/6 intro-text-2"
+                    class="absolute flex justify-center items-center gap-x-6 w-5/6 intro-text-2"
                 >
-                    <img
+                    <!-- <img
                         src="res/img2.jpg"
                         class="para-img"
                         title="Deforestation is one of the causes of Greenhouse Effect (Attribution: https://www.wwf.org.uk/)"
-                    />
+                    /> -->
                     <div class="content-box">
                         <p class="content-mass">
                             The burning of fossil fuels, deforestation, and
@@ -366,7 +364,7 @@
                 id="Impacts"
             >
                 <div
-                    class="absolute flex justify-center items-center gap-2 w-5/6 impact-text-1"
+                    class="absolute flex justify-center items-center gap-x-6 w-5/6 impact-text-1"
                 >
                     <div class="content-box">
                         <h1 class="content-heading font-bold underline">
@@ -386,20 +384,20 @@
                             climate change.
                         </p>
                     </div>
-                    <img
+                    <!-- <img
                         src="res/img3.jpg"
                         class="para-img"
                         title="Melting of Ice Caps leading to rising sea levels (Attribution: https://sites.psu.edu/)"
-                    />
+                    /> -->
                 </div>
                 <div
-                    class="absolute flex justify-center items-center gap-2 w-5/6 impact-text-2"
+                    class="absolute flex justify-center items-center gap-x-6 w-5/6 impact-text-2"
                 >
-                    <img
+                    <!-- <img
                         src="res/img4.jpg"
                         class="para-img"
                         title="Greenhouse Effect leads to rising temperatures (Attribution: https://www.lifeadvancer.com/)"
-                    />
+                    /> -->
                     <div class="content-box">
                         <p class="content-mass">
                             Our project goes beyond simply presenting data; it
@@ -429,7 +427,7 @@
                                 ANALYSIS:
                             </h1>
                             <p class="content-mass font-semibold">
-                                A raster emission map displaying greenhouse
+                                A raster emission map displaying global greenhouse
                                 emission over the years
                             </p>
                             <em class="content-attr font-semibold"
@@ -503,9 +501,13 @@
                                         <span
                                             class="flex-auto text-center"
                                             id="visualization-title"
-                                            >Global Emission Analysis
-                                            (2023)</span
+                                            ></span
                                         >
+                                        <div class="w-fit ml-2">
+                                            <svg id="visualization-revert-button" onclick="onVisualizationRevertClick()" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="26" height="26" viewBox="0 31.7 512 448.5">
+                                                <path id="XMLID_3_" d="M255.6,31.7c-70.8,0-134.3,28.5-180.7,74.9L0,31.7v192.1h192.1l-71.6-71.6c35-35,83-56.2,135.9-56.2   c105.8,0,192.1,86.3,192.1,192.1c0,57-25.2,109.1-65.1,144.1l42.3,48C478.6,433,512,364.7,512,288.2   C511.2,146.5,397.2,31.7,255.6,31.7z"/>
+                                            </svg>
+                                        </div>
                                         <div class="w-fit ml-2">
                                             <svg
                                                 id="visualization-close-button"
@@ -533,9 +535,9 @@
                                         <div
                                             class="w-full flex px-4 items-center justify-between"
                                         >
-                                            <div>Total GHG:</div>
+                                            <div>Total GHG Emissions:</div>
                                             <div class="min-w-max">
-                                                0 <sub>Mt CO₂eq</sub>
+                                                <span id="total-ghg-emissions-id">0</span> <sub>Mt CO₂eq</sub>
                                             </div>
                                         </div>
                                         <hr
@@ -600,6 +602,28 @@
                         </div>
                         <script src="src/chart-manager.js"></script>
                         <script src="src/chloropleth-plot.js"></script>
+                    </div>
+                    <div
+                        class="absolute flex justify-center items-center gap-x-6 w-5/6 analysis-text text-white"
+                    >
+                        <div class="content-box">
+                            <p class="content-mass">
+                                The analysis of GHG emissions reveals key trends that <em class="font-semibold">help us understand the sources and drivers of climate change</em>.
+                            </p>
+                            <p class="content-mass mt-2">
+                                Here are some of the findings we highlight in our project:
+                            </p>
+                            <ol class="list-decimal content-mass ml-6 mt-2">
+                                <li><em class="font-bold underline">Country-Level Emissions:</em> Our color gradient map shows a stark contrast between emission levels in developed and developing nations. The data highlights that the largest emitters, such as the U.S., China, and India, contribute significantly to global emissions due to industrial activity, energy consumption, and transportation.</li>
+                                <li><em class="font-bold underline">Industry-Specific Emissions:</em> Upon clicking on a specific country, our platform reveals the breakdown of emissions by industry. This includes data on sectors such as energy, transportation, agriculture, and manufacturing, which are the major contributors to GHG emissions. For example, in many countries, the energy sector is responsible for the largest share of emissions due to reliance on fossil fuels for power generation.</li>
+                                <li><em class="font-bold underline">Year-on-Year Trends:</em> By analyzing year-on-year changes in emissions, we can identify patterns of increase or decrease in specific regions and industries. This analysis is crucial for evaluating the effectiveness of climate policies, monitoring progress toward emission reduction targets, and identifying areas that require urgent attention.</li>
+                            </ol>
+                        </div>
+                        <!-- <img
+                            src="res/img5.jpg"
+                            class="para-img"
+                            title=" (Attribution: )"
+                        /> -->
                     </div>
                 </section>
             </section>

@@ -1,6 +1,6 @@
 function toggleMenu(name, value) {
-    document.getElementById(`${name}-menu-item-id`).className = value ? "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" : "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white";
-    document.getElementById(`${name}-mobile-menu-item-id`).className = value ? "block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" : "block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white";
+    document.getElementById(`${name}-menu-item-id`).className = value ? "cursor-pointer rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" : "cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white";
+    document.getElementById(`${name}-mobile-menu-item-id`).className = value ? "cursor-pointer block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" : "cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white";
 }
 
 gsap.registerPlugin(ScrollTrigger);
@@ -198,7 +198,7 @@ let tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".analysis-container",
         start: "top 50%",
-        end: "+=600% top",
+        end: "+=550% top",
         scrub: true,
         pin: true,
         onEnter: function() {
@@ -235,12 +235,12 @@ tl.to(".img-section-3", {
     height: "100%",
     transform: "translate(0, 0)",
     duration: 1,
-})
-.to(".img-section-3", {
+}).to(".img-section-3", {
     backgroundPosition: "50% 100%",
-    duration: 10,
-})
-.to("#emission-map-analysis-container-id", {
+    duration: 17,
+}).set(".img-section-3", {
+    pointerEvents: "all",
+}, 1).to("#emission-map-analysis-container-id", {
     opacity: 1,
     marginLeft: 0,
     marginRight: 0,
@@ -264,5 +264,18 @@ tl.to(".img-section-3", {
     marginLeft: -20,
     marginRight: 20,
     duration: 1,
-}, 10);
+}, 10).to(".analysis-text", {
+    opacity: 1,
+    marginLeft: 0,
+    marginRight: 0,
+    zIndex: 0,
+    duration: 1,
+}, 11).to(".analysis-text", {
+    opacity: 0,
+    marginLeft: 20,
+    marginRight: -20,
+    duration: 1,
+}, 15).set(".analysis-text", {
+    pointerEvents: "none",
+}, 16);
 

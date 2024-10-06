@@ -92,7 +92,7 @@ a.hyperlink:hover::before {
 
 #chloropleth-map {
     border-radius: 10px;
-    background-color: #ebebeb;
+    background-color: #b7dfff;
     padding: 10px;
     min-width: 111px;
 }
@@ -120,7 +120,7 @@ a.hyperlink:hover::before {
     }
 }
 
-@media only screen and (max-width: 1200px), (max-height: 700px) {
+/* @media only screen and (max-width: 1200px), (max-height: 700px) {
     .para-img {
         min-width: 220px;
         height: auto;
@@ -132,7 +132,7 @@ a.hyperlink:hover::before {
         min-width: 50px;
         height: auto;
     }
-}
+} */
 /* 
 @media only screen and (max-height: 800px) {
     .visualization {
@@ -205,15 +205,35 @@ a.hyperlink:hover::before {
     transform: scale(0.9);
 }
 
+#visualization-revert-button {
+    display: none;
+    /* width: fit-content; */
+    margin-left: auto;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#visualization-revert-button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+#visualization-revert-button:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+}
+
 .chart-container {
     overflow-x: hidden;
-    height: 93%;
+    height: 83%;
 }
 
 .chart {
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -279,16 +299,14 @@ a.hyperlink:hover::before {
     background: #464646;
 }
 
-.para-img {
-    /* -webkit-user-drag: none;
-    user-drag: none; */
+/* .para-img {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* width: 60%; */
     z-index: 1;
     float: right;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     width: 330px;
     height: auto;
@@ -298,8 +316,8 @@ a.hyperlink:hover::before {
 }
 
 .para-img:hover {
-    transform: scale(1.5);
-}
+    transform: scale(1.2);
+} */
 
 .para-indent {
     text-indent: 3ch;
@@ -378,7 +396,7 @@ a.hyperlink:hover::before {
     left: 50vw;
     transform: translate(-50%, -50%);
     height: 100vh;
-    z-index: 100;
+    z-index: 1;
     /* flex-wrap: wrap; */
     /* width: 100vw;
     height: 100vh; */
@@ -398,16 +416,32 @@ a.hyperlink:hover::before {
     height: 100vh; */
 }
 
+.analysis-text {
+    position: absolute;
+    opacity: 0;
+    /* rotate: -30deg; */
+    /* top: 50vh; */
+    margin-left: -20px;
+    margin-right: 20px;
+    left: 50vw;
+    transform: translate(-50%, 0);
+    height: 100vh;
+    /* flex-wrap: wrap; */
+    /* width: 100vw;
+    height: 100vh; */
+    z-index: -1;
+}
+
 .content-box {
-    background-color: rgb(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgb(17,24,39, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-backdrop-filter: blur(50px);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
     margin-top: 80px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .content-box.analysis-box {
@@ -419,7 +453,7 @@ a.hyperlink:hover::before {
 }
 
 .content-mass {
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 .content-attr {
@@ -427,19 +461,19 @@ a.hyperlink:hover::before {
 }
 
 .img-section-1 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../res/ghgc1.jpg);
     min-height: calc(700%);
 }
 
 .img-section-2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../res/ghgc2.jpg);
-    min-height: calc(1850%);
+    min-height: calc(1550%);
 }
 
 .analysis-container {
-    margin-top: 750vh;
+    margin-top: 850vh;
     /* bottom: 0%;
     left: 50%; */
     width: 100vw;
@@ -447,11 +481,12 @@ a.hyperlink:hover::before {
 }
 
 .img-section-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../res/ghgc3.jpg);
     transform: translate(-50%,-50%);
     border-radius: 40px;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .img-section-1,
@@ -461,4 +496,13 @@ a.hyperlink:hover::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+hr {
+    border-color: #5d6266;
+    margin: 5px 0;
+}
+
+.rule-margin {
+    margin: 0 10px;
 }

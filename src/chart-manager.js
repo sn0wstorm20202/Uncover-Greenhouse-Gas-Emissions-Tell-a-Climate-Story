@@ -17,7 +17,7 @@ let chart1 = new Chart(ctx, {
         datasets: [
             {
                 label: "Emission Qty. in Mt CO₂eq",
-                data: [],
+                data: new Array(54).fill(0),
                 backgroundColor: "rgba(75, 192, 192, 0.2)",
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 1,
@@ -47,7 +47,7 @@ let chart2 = new Chart(ctx2, {
         datasets: [
             {
                 label: "Emission Qty. in Mt CO₂eq",
-                data: [],
+                data: [0,0,0,0],
                 borderWidth: 1,
             },
         ],
@@ -84,7 +84,7 @@ let chart3 = new Chart(ctx3, {
         datasets: [
             {
                 label: "Emission Qty. in Mt CO₂eq",
-                data: [],
+                data: [0,0,0,0,0,0,0,0],
                 borderWidth: 1,
             },
         ],

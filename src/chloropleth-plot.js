@@ -1,4 +1,4 @@
-const countryMappedData = {
+const countryCodeMap = {
     Afghanistan: "AFG",
     Angola: "AGO",
     Albania: "ALB",
@@ -171,6 +171,50 @@ const countryMappedData = {
     Zambia: "ZMB",
     Zimbabwe: "ZWE",
 };
+let currentCountry;
+let emissionData = {
+    GLOBAL: {
+        emissionDataByYear: new Array(54).fill(0),
+        emissionDataBySubstance: new Array(54).fill().map(_ => ({
+            "CO2": 0,
+            "CH4": 0,
+            "Fluorocarbons": 0,
+            "N2O": 0
+        })),
+        emissionDataBySector: new Array(54).fill().map(_ => ({
+            "Agriculture": 0,
+            "Buildings": 0,
+            "Fuel Exploitation": 0,
+            "Industrial Combustion": 0,
+            "Power Industry": 0,
+            "Processes": 0,
+            "Transport": 0,
+            "Waste": 0,
+        })),
+    }
+};
+let year = 2023;
+
+for (let code of Object.values(countryCodeMap)) {
+    emissionData[code] = {};
+    emissionData[code].emissionDataByYear = new Array(54).fill(0);
+    emissionData[code].emissionDataBySubstance = new Array(54).fill().map(_ => ({
+        "CO2": 0,
+        "CH4": 0,
+        "Fluorocarbons": 0,
+        "N2O": 0
+    }));
+    emissionData[code].emissionDataBySector = new Array(54).fill().map(_ => ({
+        "Agriculture": 0,
+        "Buildings": 0,
+        "Fuel Exploitation": 0,
+        "Industrial Combustion": 0,
+        "Power Industry": 0,
+        "Processes": 0,
+        "Transport": 0,
+        "Waste": 0,
+    }));
+}
 
 // The svg
 const svg = d3.select("#chloropleth-map"),
@@ -194,171 +238,154 @@ const colorScale = d3
     .domain([1, 90, 90, 1000, 2000, 5000, 6000, 80000])
     .range(d3.schemeReds[8]);
 
-// Load CSV data for GHG emissions
-let emissionDataBySubstance = {
-    CO2: 0,
-    CH4: 0,
-    N2O: 0,
-    Fluorocarbons: 0,
-};
-let emissionDataBySector = {
-    "Agriculture": 0,
-    "Buildings": 0,
-    "Fuel Exploitation": 0,
-    "Industrial Combustion": 0,
-    "Power Industry": 0,
-    "Processes": 0,
-    "Transport": 0,
-    "Waste": 0,
-};
-let emissionDataByYear = {
-    "2023": 0,
-    "2022": 0,
-    "2021": 0,
-    "2020": 0,
-    "2019": 0,
-    "2018": 0,
-    "2017": 0,
-    "2016": 0,
-    "2015": 0,
-    "2014": 0,
-    "2013": 0,
-    "2012": 0,
-    "2011": 0,
-    "2010": 0,
-    "2009": 0,
-    "2008": 0,
-    "2007": 0,
-    "2006": 0,
-    "2005": 0,
-    "2004": 0,
-    "2003": 0,
-    "2002": 0,
-    "2001": 0,
-    "2000": 0,
-    "1999": 0,
-    "1998": 0,
-    "1997": 0,
-    "1996": 0,
-    "1995": 0,
-    "1994": 0,
-    "1993": 0,
-    "1992": 0,
-    "1991": 0,
-    "1990": 0,
-    "1989": 0,
-    "1988": 0,
-    "1987": 0,
-    "1986": 0,
-    "1985": 0,
-    "1984": 0,
-    "1983": 0,
-    "1982": 0,
-    "1981": 0,
-    "1980": 0,
-    "1979": 0,
-    "1978": 0,
-    "1977": 0,
-    "1976": 0,
-    "1975": 0,
-    "1974": 0,
-    "1973": 0,
-    "1972": 0,
-    "1971": 0,
-    "1970": 0,
+function render() {
+    // Load external data and boot
+    return Promise.all([
+        d3.json(
+            "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/world.geojson"
+        ),
+        d3.csv(
+            "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemissiontotals.csv",
+            function (d) {
+                // emissionData["GLOBAL"].emissionDataByYear[year - 1970] += +d[year.toString()];
+                data.set(d.Code, +d[year.toString()]);
+            }
+        ),
+    ]).then(function (loadData) {
+        svg.selectAll("*").remove();
+        let topo = loadData[0];
+
+        let mouseOver = function (_) {
+            d3.selectAll(".Country")
+                .transition()
+                .duration(150)
+                .style("opacity", 0.6)
+                .style("stroke-width", "1px");
+            // .style("stroke", "transparent");
+            d3.select(this)
+                .transition()
+                .duration(100)
+                .style("opacity", 1)
+                .style("stroke-width", "2px");
+            // .style("stroke", "black");
+        };
+
+        let mouseLeave = function (_) {
+            d3.selectAll(".Country")
+                .transition()
+                .duration(150)
+                .style("opacity", 0.9)
+                .style("stroke-width", "1px");
+            // .style("stroke", "transparent");
+            // d3.select(this)
+            //     .transition()
+            //     .duration(200)
+            //     .style("stroke", "transparent");
+        };
+
+        let mouseClick = function (_, d) {
+            if (countryCodeMap[d.properties.name]) {
+                document.getElementById("visualization-revert-button").style.display = 'block';
+                currentCountry = d.properties.name;
+                update(true, false);
+            }
+        };
+
+        // Draw the map
+        svg.append("g")
+            .selectAll("path")
+            .data(topo.features)
+            .enter()
+            .append("path")
+            // draw each country
+            .attr("d", d3.geoPath().projection(projection))
+            // set the color of each country
+            .attr("fill", function (d) {
+                d.total = data.get(d.id) || 0;
+                return colorScale(d.total);
+            })
+            .style("stroke", "black")
+            .attr("class", function (_) {
+                return "Country";
+            })
+            .style("opacity", 0.9)
+            .style("cursor", "pointer")
+            .on("mouseover", mouseOver)
+            .on("mouseleave", mouseLeave)
+            .on("click", mouseClick);
+
+            // document.getElementById('total-ghg-emissions-id').innerText = emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
+            // document.getElementById('visualization-title').innerText = `Global Emission Analysis (${year})`;
+            // chart1.data.datasets[0].data = emissionData["GLOBAL"].emissionDataByYear;
+            // chart2.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySubstance);
+            // chart3.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySector);
+
+            // chart1.update();
+            // chart2.update();
+            // chart3.update();
+    });
 }
-// d3.csv(
-//     "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
-//     function (d) {
-//         let country = emissionData[d["Code"]];
-//         if (country) {
 
-//         } else {
+d3.csv(
+    "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemission.csv",
+    function (d) {
+        if (emissionData[d.Code]) {
+            for (let i = 0; i < 54; i++) {
+                emissionData[d.Code].emissionDataByYear[i] += +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataByYear[i] += +d[(1970 + i).toString()];
 
-//         }
-//     }
-// );
+                emissionData[d.Code].emissionDataBySubstance[i][d["Substance"]] += +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataBySubstance[i][d["Substance"]] += +d[(1970 + i).toString()];
 
-let year = 2023;
+                emissionData[d.Code].emissionDataBySector[i][d["Sector"]] += +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataBySector[i][d["Sector"]] += +d[(1970 + i).toString()];
+            }
+        }
+    }
+).then(function() {
+    update(false, true);
+});
+
+// let emissionDataByYear = Array.new(54);
+// let emissionDataBySubstance;
+// let emissionDataBySector;
+
+function update(openPanel, refresh) {
+    if (openPanel && document.getElementById("visualization-id").classList.contains("closed")) {
+        document.getElementById("visualization-id").classList.remove("closed");
+    }
+    if (refresh) {
+        render();
+    }
+    if (currentCountry) {
+        const countryCode = countryCodeMap[currentCountry];
+        document.getElementById('total-ghg-emissions-id').innerText = emissionData[countryCode].emissionDataByYear[+year - 1970].toFixed(2);
+        document.getElementById('visualization-title').innerText = `${currentCountry}'s Emission Analysis (${year})`;
+        chart1.data.datasets[0].data = emissionData[countryCode].emissionDataByYear;
+        chart2.data.datasets[0].data = Object.values(emissionData[countryCode].emissionDataBySubstance[+(year - 1970)]);
+        chart3.data.datasets[0].data = Object.values(emissionData[countryCode].emissionDataBySector[+(year - 1970)]);
+
+    } else {
+        document.getElementById('total-ghg-emissions-id').innerText = emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
+        document.getElementById('visualization-title').innerText = `Global Emission Analysis (${year})`;
+        chart1.data.datasets[0].data = emissionData["GLOBAL"].emissionDataByYear;
+        chart2.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySubstance[+(year - 1970)]);
+        chart3.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySector[+(year - 1970)]);
+    }
+    chart1.update();
+    chart2.update();
+    chart3.update();
+}
+
+function onVisualizationRevertClick() {
+    if (currentCountry) {
+        document.getElementById("visualization-revert-button").style.display = 'none';
+        currentCountry = undefined;
+        update(true, false);
+    }
+}
 
 function onYearChange() {
     year = document.getElementById("year-range").value;
-    console.log(year);
+    update(false, true);
 }
-
-// Load external data and boot
-Promise.all([
-    d3.json(
-        "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/world.geojson"
-    ),
-    d3.csv(
-        "https://raw.githubusercontent.com/sn0wstorm20202/Uncover-Greenhouse-Gas-Emissions-Tell-a-Climate-Story/main/data/ghgemissiontotals.csv",
-        function (d) {
-            data.set(d["Code"], +d[year.toString()]);
-        }
-    ),
-]).then(function (loadData) {
-    let topo = loadData[0];
-
-    let mouseOver = function (_) {
-        d3.selectAll(".Country")
-            .transition()
-            .duration(150)
-            .style("opacity", 0.6)
-            .style("stroke-width", "1px");
-        // .style("stroke", "transparent");
-        d3.select(this)
-            .transition()
-            .duration(100)
-            .style("opacity", 1)
-            .style("stroke-width", "2px");
-        // .style("stroke", "black");
-    };
-
-    let mouseLeave = function (_) {
-        d3.selectAll(".Country")
-            .transition()
-            .duration(150)
-            .style("opacity", 0.8)
-            .style("stroke-width", "1px");
-        // .style("stroke", "transparent");
-        // d3.select(this)
-        //     .transition()
-        //     .duration(200)
-        //     .style("stroke", "transparent");
-    };
-
-    let mouseClick = function (_, d) {
-        const countryCode = countryMappedData[d.properties.name];
-        if (countryCode) {
-            if (document.getElementById("visualization-id").classList.contains("closed")) {
-                document.getElementById("visualization-id").classList.remove("closed");
-            }
-            document.getElementById('visualization-title').innerText = `${d.properties.name}'s Emission Analysis (${year})`;
-            console.log(d.properties.name, d.total, countryCode);
-        }
-    };
-
-    // Draw the map
-    svg.append("g")
-        .selectAll("path")
-        .data(topo.features)
-        .enter()
-        .append("path")
-        // draw each country
-        .attr("d", d3.geoPath().projection(projection))
-        // set the color of each country
-        .attr("fill", function (d) {
-            d.total = data.get(d.id) || 0;
-            return colorScale(d.total);
-        })
-        .style("stroke", "black")
-        .attr("class", function (_) {
-            return "Country";
-        })
-        .style("opacity", 0.8)
-        .style("cursor", "pointer")
-        .on("mouseover", mouseOver)
-        .on("mouseleave", mouseLeave)
-        .on("click", mouseClick);
-});

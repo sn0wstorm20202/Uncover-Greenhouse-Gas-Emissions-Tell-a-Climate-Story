@@ -1,4 +1,4 @@
-let map = L.map("emission-map").setView([0, 0], 1);
+let map = L.map("emission-map").setView([0, 0], 1.48);
 
 // let baseMaps = {
 // "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -85,7 +85,6 @@ function onDateChange() {
         newDate.getFullYear().toString().padStart(4, "0") +
         (newDate.getMonth() + 1).toString().padStart(2, "0") +
         newDate.getDate().toString().padStart(2, "0");
-    // console.log(dateValue, dateStr);
     renderGeoraster(
         `https://dljsq618eotzp.cloudfront.net/oco2geos-co2-daygrid-v10r/oco2_GEOS_XCO2_L3CO2_day_B10206Ar_${currentDate}.tif`,
         currentDate

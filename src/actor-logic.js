@@ -28,3 +28,15 @@ function menuToggle() {
 function onVisualizationCloseClick() {
     document.getElementById("visualization-id").classList.add("closed");
 }
+
+function jumpTo(name) {
+    window.scrollTo(0, {
+        // TODO: Complete this for solutions and reference part
+        home: 0,
+        introduction: document.body.offsetHeight,
+        impacts: 8.5 * document.body.offsetHeight,
+        analysis: 15.7 * document.body.offsetHeight,
+        solutions: 0,
+        references: 0
+    }[name]);
+}
