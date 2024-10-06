@@ -34,6 +34,24 @@ ScrollTrigger.create({
     },
 });
 
+ScrollTrigger.create({
+    trigger: ".text-section-container",
+    start: "0 5%",
+    // end: "50% 0",
+    onEnter: function() {
+        toggleMenu('reference', true);
+    },
+    onLeave: function() {
+        toggleMenu('reference', false);
+    },
+    onEnterBack: function() {
+        toggleMenu('reference', true);
+    },
+    onLeaveBack: function() {
+        toggleMenu('reference', false);
+    },
+});
+
 gsap.timeline()
     .to(".header-title", {
         marginTop: 0,

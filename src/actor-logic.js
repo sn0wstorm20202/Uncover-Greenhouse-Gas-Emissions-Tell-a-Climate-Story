@@ -36,6 +36,6 @@ function jumpTo(name) {
         impact: 8.5 * document.body.offsetHeight,
         analysis: 15.7 * document.body.offsetHeight,
         solution: 23 * document.body.offsetHeight,
-        reference: 0
+        reference: 29 * document.body.offsetHeight,
     }[name]);
 }
