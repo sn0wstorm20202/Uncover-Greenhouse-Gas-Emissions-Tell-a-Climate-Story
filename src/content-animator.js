@@ -308,25 +308,35 @@ gsap.timeline({
         ease: "ease-out",
         // markers: true,
     }
+}).to(".slide.one", {
+    backgroundPosition: "50% 0",
+    duration: 14,
 }).to(".slide-container", {
     marginLeft: "-100vw",
     duration: 14,
-    delay: 12,
+}).to(".slide.two", {
+    backgroundPosition: "50% 0",
+    duration: 14,
 }).to(".slide-container", {
     marginLeft: "-200vw",
     duration: 14,
-    delay: 12,
+}).to(".slide.three", {
+    backgroundPosition: "50% 0",
+    duration: 14,
 }).to(".slide-container", {
     marginLeft: "-300vw",
     duration: 14,
-    delay: 12,
+}).to(".slide.four", {
+    backgroundPosition: "50% 0",
+    duration: 14,
 }).to(".slide-container", {
     marginLeft: "-400vw",
     duration: 14,
-    delay: 12,
+}).to(".slide.five", {
+    backgroundPosition: "50% 0",
+    duration: 14,
 }).to(".slide-container", {
     marginLeft: "-500vw",
     duration: 14,
-    delay: 12,
 })
 

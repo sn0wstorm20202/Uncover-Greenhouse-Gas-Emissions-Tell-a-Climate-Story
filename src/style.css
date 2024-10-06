@@ -540,10 +540,10 @@ a.hyperlink:hover::before {
 .slide .three,
 .slide .four,
 .slide .five {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-position: 0 100%;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .img-section-1,
