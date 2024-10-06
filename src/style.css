@@ -36,13 +36,13 @@ body {
 a.hyperlink {
     position: relative;
     color: #285cbe;
-    font-weight: semi-bold;
+    font-weight: bold;
     text-decoration: none;
     transition: 0.3s ease;
 }
 
 a.hyperlink:hover {
-    color: #5483da;
+    color: #4079e2;
 }
 
 a.hyperlink::before {
@@ -60,7 +60,7 @@ a.hyperlink::before {
 }
 
 a.hyperlink:hover::before {
-    background-color: #5483da;
+    background-color: #4079e2;
     transform: scaleX(1);
 }
 
@@ -79,12 +79,13 @@ a.hyperlink:hover::before {
     opacity: 0;
 }
 
-.map-analysis-container.emerge-left {
+#emission-map-analysis-container-id {
     margin-left: -20px;
     margin-right: 20px;
+    z-index: 100;
 }
 
-.map-analysis-container.emerge-right {
+#chloropleth-map-analysis-container-id {
     margin-left: 20px;
     margin-right: -20px;
 }
@@ -350,7 +351,7 @@ a.hyperlink:hover::before {
 }
 
 .content-box {
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
@@ -365,7 +366,7 @@ a.hyperlink:hover::before {
 }
 
 .content-mass {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .img-section-1 {

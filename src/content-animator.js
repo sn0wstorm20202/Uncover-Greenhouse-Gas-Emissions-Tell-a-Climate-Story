@@ -246,6 +246,7 @@ tl.to(".img-section-3", {
     opacity: 0,
     marginLeft: 20,
     marginRight: -20,
+    zIndex: 0,
     duration: 1,
 }, 5).to("#chloropleth-map-analysis-container-id", {
     opacity: 1,
