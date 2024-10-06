@@ -75,7 +75,7 @@ a.hyperlink:hover::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 90%;
     opacity: 0;
 }
 
@@ -489,6 +489,62 @@ a.hyperlink:hover::before {
     pointer-events: none;
 }
 
+.section-4-container {
+    margin-top: 50vh;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* -webkit-perspective: 1000;
+    perspective: 10; */
+    background-color: #c7e1ff;
+}
+
+.slide-container {
+    min-width: 500vw;
+    min-height: 100vh;
+    /* transform-style: preserve-3d; */
+}
+
+.slide {
+    min-width: 100vw;
+    min-height: 100vh;
+    float: left;
+    /* background-color: rebeccapurple;
+    transform: translateZ(-50px); */
+}
+
+.slide.one {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(../res/ghgc4.jpg);
+}
+.slide.two {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(../res/ghgc5.jpg);
+}
+.slide.three {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(../res/ghgc6.jpg);
+}
+.slide.four {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(../res/ghgc7.jpg);
+}
+.slide.five {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(../res/ghgc8.jpg);
+}
+
+.slide .one,
+.slide .two,
+.slide .three,
+.slide .four,
+.slide .five {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .img-section-1,
 .img-section-2,
 .img-section-3 {
@@ -496,6 +552,25 @@ a.hyperlink:hover::before {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.text-section-container {
+    margin-top: 650vh;
+}
+
+.text-section {
+    padding: 50px 80px;
+    /* text-align: justify; */
+}
+
+.text-section.section-light {
+    background-color: #f4f4f4;
+    color: #666;
+}
+
+.text-section.section-dark {
+    background-color: #282e34;
+    color: #ddd;
 }
 
 hr {

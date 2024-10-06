@@ -134,10 +134,10 @@
                                     >Introduction</a
                                 >
                                 <a
-                                    onclick="jumpTo('impacts')"
+                                    onclick="jumpTo('impact')"
                                     class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                                    id="impacts-menu-item-id"
-                                    >Impacts</a
+                                    id="impact-menu-item-id"
+                                    >Impact</a
                                 >
                                 <a
                                     onclick="jumpTo('analysis')"
@@ -146,16 +146,16 @@
                                     >Analysis</a
                                 >
                                 <a
-                                    onclick="jumpTo('solutions')"
+                                    onclick="jumpTo('solution')"
                                     class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                                    id="solutions-menu-item-id"
-                                    >Solutions</a
+                                    id="solution-menu-item-id"
+                                    >Solution</a
                                 >
                                 <a
-                                    onclick="jumpTo('references')"
+                                    onclick="jumpTo('reference')"
                                     class="cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                                    id="references-menu-item-id"
-                                    >References</a
+                                    id="reference-menu-item-id"
+                                    >Reference</a
                                 >
                             </div>
                         </div>
@@ -180,10 +180,10 @@
                         >Introduction</a
                     >
                     <a
-                        onclick="jumpTo('impacts')"
+                        onclick="jumpTo('impact')"
                         class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                        id="impacts-mobile-menu-item-id"
-                        >Impacts</a
+                        id="impact-mobile-menu-item-id"
+                        >Impact</a
                     >
                     <a
                         onclick="jumpTo('analysis')"
@@ -192,16 +192,16 @@
                         >Analysis</a
                     >
                     <a
-                        onclick="jumpTo('solutions')"
+                        onclick="jumpTo('solution')"
                         class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                        id="solutions-mobile-menu-item-id"
-                        >Solutions</a
+                        id="solution-mobile-menu-item-id"
+                        >Solution</a
                     >
                     <a
-                        onclick="jumpTo('references')"
+                        onclick="jumpTo('reference')"
                         class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                        id="references-mobile-menu-item-id"
-                        >References</a
+                        id="reference-mobile-menu-item-id"
+                        >Reference</a
                     >
                 </div>
             </div>
@@ -222,9 +222,10 @@
                     class="absolute flex justify-center items-center gap-x-6 w-5/6 intro-text-1"
                 >
                     <div class="content-box flex-auto">
-                        <h1 class="content-heading font-bold underline">
+                        <h1 class="content-heading font-bold">
                             INTRODUCTION:
                         </h1>
+                        <hr>
                         <p class="content-mass mt-2">
                             <em class="font-bold">Climate change</em> is one of
                             the most pressing global challenges of our time. The
@@ -242,7 +243,7 @@
                             <em class="font-semibold">methane (CH₄)</em> play a
                             critical role in climate change by enhancing the
                             atmosphere's ability to trap heat, leading to a
-                            cascade of environmental impacts.
+                            cascade of environmental impact.
                         </p>
                         <ul class="list-disc content-mass ml-6 mt-2">
                             <li>
@@ -361,15 +362,16 @@
         <section class="relative img-section-2">
             <div
                 class="absolute text-white header-text content-text-2"
-                id="Impacts"
+                id="Impact"
             >
                 <div
                     class="absolute flex justify-center items-center gap-x-6 w-5/6 impact-text-1"
                 >
                     <div class="content-box">
-                        <h1 class="content-heading font-bold underline">
-                            IMPACTS:
+                        <h1 class="content-heading font-bold">
+                            IMPACT:
                         </h1>
+                        <hr>
                         <p class="content-mass mt-2">
                             Over the past decade, we have witnessed
                             unprecedented changes in our climate, including
@@ -423,12 +425,16 @@
                         <div
                             class="container mx-auto p-4 text-center text-white"
                         >
-                            <h1 class="content-heading font-bold underline">
+                            <h1 class="content-heading font-bold">
                                 ANALYSIS:
                             </h1>
+                            <hr>
                             <p class="content-mass font-semibold">
                                 A raster emission map displaying global greenhouse
                                 emission over the years
+                            </p>
+                            <p class="content-mass font-bold">
+                                (Darker regions represent higher concentrations of GHG in that area.)
                             </p>
                             <em class="content-attr font-semibold"
                                 >(Source: <a rel="noopener" class="hyperlink" href="https://dljsq618eotzp.cloudfront.net/browseui/index.html#oco2geos-co2-daygrid-v10r/" target="_blank">NASA</a>)</em
@@ -614,9 +620,9 @@
                                 Here are some of the findings we highlight in our project:
                             </p>
                             <ol class="list-decimal content-mass ml-6 mt-2">
-                                <li><em class="font-bold underline">Country-Level Emissions:</em> Our color gradient map shows a stark contrast between emission levels in developed and developing nations. The data highlights that the largest emitters, such as the U.S., China, and India, contribute significantly to global emissions due to industrial activity, energy consumption, and transportation.</li>
-                                <li><em class="font-bold underline">Industry-Specific Emissions:</em> Upon clicking on a specific country, our platform reveals the breakdown of emissions by industry. This includes data on sectors such as energy, transportation, agriculture, and manufacturing, which are the major contributors to GHG emissions. For example, in many countries, the energy sector is responsible for the largest share of emissions due to reliance on fossil fuels for power generation.</li>
-                                <li><em class="font-bold underline">Year-on-Year Trends:</em> By analyzing year-on-year changes in emissions, we can identify patterns of increase or decrease in specific regions and industries. This analysis is crucial for evaluating the effectiveness of climate policies, monitoring progress toward emission reduction targets, and identifying areas that require urgent attention.</li>
+                                <li><em class="font-bold underline">Country-Level Emissions</em>: Our color gradient map shows a stark contrast between emission levels in developed and developing nations. The data highlights that the largest emitters, such as the U.S., China, and India, contribute significantly to global emissions due to industrial activity, energy consumption, and transportation.</li>
+                                <li><em class="font-bold underline">Industry-Specific Emissions</em>: Upon clicking on a specific country, our platform reveals the breakdown of emissions by industry. This includes data on sectors such as energy, transportation, agriculture, and manufacturing, which are the major contributors to GHG emissions. For example, in many countries, the energy sector is responsible for the largest share of emissions due to reliance on fossil fuels for power generation.</li>
+                                <li><em class="font-bold underline">Year-on-Year Trends</em>: By analyzing year-on-year changes in emissions, we can identify patterns of increase or decrease in specific regions and industries. This analysis is crucial for evaluating the effectiveness of climate policies, monitoring progress toward emission reduction targets, and identifying areas that require urgent attention.</li>
                             </ol>
                         </div>
                         <!-- <img
@@ -627,6 +633,127 @@
                     </div>
                 </section>
             </section>
+        </section>
+        <section class="absolute section-4-container">
+            <div class="slide-container flex">
+                <div class="slide one">
+                    <div class="flex justify-center items-center w-full h-full text-white">
+                        <div class="content-box w-5/6 h-fit p-12">
+                            <h1 class="content-heading font-bold">
+                                SOLUTION:
+                            </h1>
+                            <hr>
+                            <p class="content-mass">
+                                The data and analysis presented on our website highlight the <em class="font-bold underline">urgent need for action against climate change</em>. By understanding the sources and consequences of greenhouse gas emissions, we can develop effective strategies to reduce our carbon footprint and mitigate the impacts of climate change.
+                            </p>
+                            <p class="content-mass mt-2">
+                                Here are some of the findings we highlight in our project:
+                            </p>
+                            <ol class="list-decimal content-mass ml-6 mt-2">
+                                <li><em class="font-bold underline">Country-Level Emissions</em>: Our color gradient map shows a stark contrast between emission levels in developed and developing nations. The data highlights that the largest emitters, such as the U.S., China, and India, contribute significantly to global emissions due to industrial activity, energy consumption, and transportation.</li>
+                                <li><em class="font-bold underline">Industry-Specific Emissions</em>: Upon clicking on a specific country, our platform reveals the breakdown of emissions by industry. This includes data on sectors such as energy, transportation, agriculture, and manufacturing, which are the major contributors to GHG emissions. For example, in many countries, the energy sector is responsible for the largest share of emissions due to reliance on fossil fuels for power generation.</li>
+                                <li><em class="font-bold underline">Year-on-Year Trends</em>: By analyzing year-on-year changes in emissions, we can identify patterns of increase or decrease in specific regions and industries. This analysis is crucial for evaluating the effectiveness of climate policies, monitoring progress toward emission reduction targets, and identifying areas that require urgent attention.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide two">
+                    <div class="flex justify-center items-center w-full h-full text-white">
+                        <div class="content-box w-5/6 h-fit p-12">
+                            <p class="content-mass">
+                                Our solution also addresses the global need for transparent, actionable climate data that can inform and drive meaningful change. We offer a three-pronged approach:
+                            </p>
+                            <ol class="list-decimal content-mass ml-6 mt-2">
+                                <li><em class="font-bold underline">Data Transparency and Accessibility</em>: Our interactive platform makes GHG data easy to understand and navigate. Users can explore country-specific and industry-specific emissions data in real time, empowering them to make data-driven decisions. By presenting data in an intuitive format, we ensure that both experts and non-experts can engage with the information.</li>
+                                <li><em class="font-bold underline">Visualizing Emissions</em>: Our dual-map approach provides users with a clear understanding of how emissions are distributed geographically and across industries. The first map presents a global view, showcasing the year-on-year rise in emissions for each country. The second map dives deeper into the emissions breakdown by industry, enabling users to explore the root causes of a country's emissions and assess the role that different sectors play in contributing to climate change.</li>
+                                <li><em class="font-bold underline">Actionable Insights and Recommendations</em>: Beyond data visualization, our project offers practical steps that can be taken at both the national and industry levels for reducing emissions.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide three">
+                    <div class="flex justify-center items-center w-full h-full text-white">
+                        <div class="content-box w-5/6 h-fit p-12">
+                            <h1 class="content-heading font-bold">
+                                Steps to Reduce Greenhouse Gas Emissions:
+                            </h1>
+                            <hr>
+                            <ol class="list-decimal content-mass ml-6 mt-2">
+                                <li><em class="font-bold underline">Transition to Renewable Energy</em>: Shift from fossil fuels to renewable energy sources like solar, wind, and hydroelectric power.</li>
+                                <li><em class="font-bold underline">Increase Energy Efficiency</em>: Improve energy efficiency in buildings, transportation, and industry to reduce energy consumption.</li>
+                                <li><em class="font-bold underline">Electrify Transportation</em>: Promote the adoption of electric vehicles and public transportation to reduce emissions from transportation.</li>
+                                <li><em class="font-bold underline">Carbon Capture and Storage</em>: Implement carbon capture and storage technologies to reduce emissions from industrial sources.</li>
+                                <li><em class="font-bold underline">Sustainable Land Use</em>: Implement sustainable land use practices like reforestation, afforestation, and permaculture to sequester carbon dioxide.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide four">
+                    <div class="flex justify-center items-center w-full h-full text-white">
+                        <div class="content-box w-5/6 h-fit p-12">
+                            <h1 class="content-heading font-bold">
+                                Individual Actions:
+                            </h1>
+                            <hr>
+                            <ol class="list-decimal content-mass ml-6 mt-2">
+                                <li><em class="font-bold underline">Reduce Energy Consumption</em>: Turn off lights, electronics, and appliances when not in use to reduce energy consumption.</li>
+                                <li><em class="font-bold underline">Use Public Transportation</em>: Use public transportation, walk, or bike whenever possible to reduce emissions from transportation.</li>
+                                <li><em class="font-bold underline">Eat a Plant-Based Diet</em>: Choose a plant-based diet to reduce greenhouse gas emissions from agriculture.</li>
+                                <li><em class="font-bold underline">Conserve Water</em>: Conserve water to reduce energy consumption and greenhouse gas emissions from water treatment.</li>
+                                <li><em class="font-bold underline">Support Renewable Energy</em>: Invest in renewable energy sources like solar panels or renewable energy credits to support clean energy production.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide five">
+                    <div class="flex justify-center items-center w-full h-full text-white">
+                        <div class="content-box w-5/6 h-fit p-12">
+                            <h1 class="content-heading font-bold">
+                                Call to Action:
+                            </h1>
+                            <hr>
+                            <p class="content-mass mt-2">Join us in the fight against climate change by taking action today. Share our website with your friends and family to raise awareness about the importance of reducing greenhouse gas emissions. Together, we can make a difference and create a more sustainable future for all.</p>
+                            <p class="content-mass mt-2 para-indent">We hope this content helps you create a compelling and informative website that raises awareness about greenhouse gas emissions and inspires action against climate change.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-section-container absolute flex-col">
+            <div class="text-section section-light w-full">
+                <h1 class="text-gray-900 dark:text-black text-2xl md:text-4xl font-extrabold mb-2">REFERENCE:</h1>
+                <hr>
+                <p class="mt-4 text-bold text-xl underline text-black">Image references:</p>
+                <ol class="list-decimal content-mass ml-6 mt-2">
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">usatoday.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">axios.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">forksoverknives.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">livescience.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">treehugger.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">space.com</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.vecteezy.com/free-vector/car-pollution">Car Pollution Vectors by Vecteezy</a></li>
+                </ol>
+                <p class="mt-4 text-bold text-xl underline text-black">Content references:</p>
+                <ol class="list-decimal content-mass ml-6 mt-2">
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.nature.com/articles/s41597-019-0312-2">Artés, T., Oom, D., De Rigo, D., Durrant, T.H., Maianti, P., Libertà, G. and San-Miguel-Ayanz, J. A global wildfire dataset for the analysis of fire regimes and fire behaviour. Scientific data, 6(1), 1-11 (2019).</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.energyinst.org/statistical-review">EI, Energy Institute, 2024 Statistical Review of World Energy, 2024, https://www.energyinst.org/statistical-review, Last access: July 2024.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.fao.org/faostat">FAOSTAT (2024), Statistics Division of the Food and Agricultural Organisation of the UN: www.fao.org/faostat, Last access May 2024.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.worldbank.org/en/programs/gasflaringreduction/global-flaring-data#indicators-by-country">Global Flaring and Methane Reduction Partnership (GFMR), 2012-2023 data for gas consumption for flaring, 2024, Last Access: June 2024.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.iata.org/en/iata-repository/pressroom/fact-sheets/industry-statistics">IATA (2024), International Air Transport Association Statistics, 2024</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.iea.org">IEA World Energy Balances - 2023 Edition, All rights reserved, as modified by Joint Research Centre, European Commission, 2023a.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.iea.org">IEA Greenhouse Gas Emissions from Energy - 2023 Edition, 2023b</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.iea.org">IEA World energy balances: IEA family and beyond, April 2024 Edition.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="www.ifastat.org/">IFA (2024), Urea consumption (updates 2010-2019) and production (updates 2020) statistics, 2024.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.usgs.gov/centers/nmic/commodity-statistics-and-information">USGS, USGS Commodity Statistics (May 2024), 2024</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.worldbank.org/en/programs/gasflaringreduction/global-flaring-data#indicators-by-country">WB (2024), data of GDP PPP, (constant 2017 international $) (expressed in 1000 US dollar, and adjusted to the Purchasing Power Parity of 2017) for 1990-2023, World Bank, July 2024.</a></li>
+                    <li><a rel="noopener" class="hyperlink" target="_blank" href="https://www.worldsteel.org">World Steel Association, (worldsteel) (2024), Steel Statistical Yearbook 2024, https://worldsteel.org, 2024.</a></li>
+                </ol>
+            </div>
+            <div class="text-section section-dark w-full">
+                <p class="font-semibold text-xl text-right">
+                    © 2024 Team Innova8ors
+                </p>
+            </div>
         </section>
         <script src="src/content-animator.js"></script>
     </body>

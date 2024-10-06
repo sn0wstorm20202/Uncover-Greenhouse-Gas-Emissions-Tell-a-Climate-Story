@@ -160,16 +160,16 @@ gsap.timeline( {
         toggleActions: "restart reverse restart reverse",
         pin: true,
         onEnter: function() {
-            toggleMenu('impacts', true);
+            toggleMenu('impact', true);
         },
         onEnterBack: function() {
-            toggleMenu('impacts', true);
+            toggleMenu('impact', true);
         },
         onLeave: function() {
-            toggleMenu('impacts', false);
+            toggleMenu('impact', false);
         },
         onLeaveBack: function() {
-            toggleMenu('impacts', false);
+            toggleMenu('impact', false);
         },
     }
 }).to(".impact-text-1", {
@@ -194,11 +194,11 @@ gsap.timeline( {
     delay: 4,
 });
 
-let tl = gsap.timeline({
+gsap.timeline({
     scrollTrigger: {
         trigger: ".analysis-container",
         start: "top 50%",
-        end: "+=550% top",
+        end: "+=650% top",
         scrub: true,
         pin: true,
         onEnter: function() {
@@ -215,19 +215,7 @@ let tl = gsap.timeline({
         },
         // markers: true,
     }
-});
-
-// gsap.set(".img-section-3", {
-//     // scrollTrigger: {
-//     //     trigger: ".analysis-container",
-//     //     start: "+=600% top",
-//     //     scrub: true,
-//     // },
-//     backgroundPosition: "50% 0%",
-//     // duration: 1,
-// });
-
-tl.to(".img-section-3", {
+}).to(".img-section-3", {
     borderRadius: 0,
     top: "-50%",
     left: 0,
@@ -278,4 +266,49 @@ tl.to(".img-section-3", {
 }, 15).set(".analysis-text", {
     pointerEvents: "none",
 }, 16);
+
+gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section-4-container",
+        start: "top top",
+        end: "+=500% top",
+        scrub: 3,
+        pin: true,
+        onEnter: function() {
+            toggleMenu('solution', true);
+        },
+        onEnterBack: function() {
+            toggleMenu('solution', true);
+        },
+        onLeave: function() {
+            toggleMenu('solution', false);
+        },
+
+        onLeaveBack: function() {
+            toggleMenu('solution', false);
+        },
+        ease: "ease-out",
+        // markers: true,
+    }
+}).to(".slide-container", {
+    marginLeft: "-100vw",
+    duration: 14,
+    delay: 12,
+}).to(".slide-container", {
+    marginLeft: "-200vw",
+    duration: 14,
+    delay: 12,
+}).to(".slide-container", {
+    marginLeft: "-300vw",
+    duration: 14,
+    delay: 12,
+}).to(".slide-container", {
+    marginLeft: "-400vw",
+    duration: 14,
+    delay: 12,
+}).to(".slide-container", {
+    marginLeft: "-500vw",
+    duration: 14,
+    delay: 12,
+})
 
