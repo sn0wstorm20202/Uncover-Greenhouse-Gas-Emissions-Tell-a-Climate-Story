@@ -176,6 +176,7 @@ gsap.timeline( {
     opacity: 1,
     margin: 0,
     duration: 1,
+    delay: 3,
 }).to(".impact-text-1", {
     opacity: 0,
     margin: 20,
@@ -244,6 +245,9 @@ tl.to(".img-section-3", {
     marginLeft: 0,
     marginRight: 0,
     duration: 1,
+    onEnter: function() {
+        map.invalidateSize();
+    },
 }, 1).to("#emission-map-analysis-container-id", {
     opacity: 0,
     marginLeft: 20,
