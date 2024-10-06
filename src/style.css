@@ -94,6 +94,7 @@ a.hyperlink:hover::before {
     border-radius: 10px;
     background-color: #ebebeb;
     padding: 10px;
+    min-width: 111px;
 }
 
 .chloropleth-container {
@@ -107,11 +108,17 @@ a.hyperlink:hover::before {
     height: 600px;
 }
 
-/* @media screen and (max-width: 1200px) {
-    .chloropleth-container {
-        flex-wrap: wrap;
+@media screen and (max-width: 1200px) {
+    .content-box {
+        font-size: 0.8em;
     }
-} */
+}
+
+@media screen and (max-width: 800px) {
+    .content-box {
+        font-size: 0.55em;
+    }
+}
 
 /* @media screen and (max-width: 1200px) {
     .visualization.closed {
@@ -124,7 +131,7 @@ a.hyperlink:hover::before {
     background-color: #ebebeb;
     padding: 10px;
     max-width: 40%;
-    min-width: 222px;
+    min-width: 111px;
     height: 600px;
     transition: 0.3s ease-in;
     position: relative;
@@ -235,8 +242,8 @@ a.hyperlink:hover::before {
 }
 
 .para-img {
-    -webkit-user-drag: none;
-    user-drag: none;
+    /* -webkit-user-drag: none;
+    user-drag: none; */
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -364,11 +371,11 @@ a.hyperlink:hover::before {
 }
 
 .content-heading {
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .content-mass {
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .img-section-1 {
