@@ -175,44 +175,46 @@ let currentCountry;
 let emissionData = {
     GLOBAL: {
         emissionDataByYear: new Array(54).fill(0),
-        emissionDataBySubstance: new Array(54).fill().map(_ => ({
-            "CO2": 0,
-            "CH4": 0,
-            "Fluorocarbons": 0,
-            "N2O": 0
+        emissionDataBySubstance: new Array(54).fill().map((_) => ({
+            CO2: 0,
+            CH4: 0,
+            Fluorocarbons: 0,
+            N2O: 0,
         })),
-        emissionDataBySector: new Array(54).fill().map(_ => ({
-            "Agriculture": 0,
-            "Buildings": 0,
+        emissionDataBySector: new Array(54).fill().map((_) => ({
+            Agriculture: 0,
+            Buildings: 0,
             "Fuel Exploitation": 0,
             "Industrial Combustion": 0,
             "Power Industry": 0,
-            "Processes": 0,
-            "Transport": 0,
-            "Waste": 0,
+            Processes: 0,
+            Transport: 0,
+            Waste: 0,
         })),
-    }
+    },
 };
 let year = 2023;
 
 for (let code of Object.values(countryCodeMap)) {
     emissionData[code] = {};
     emissionData[code].emissionDataByYear = new Array(54).fill(0);
-    emissionData[code].emissionDataBySubstance = new Array(54).fill().map(_ => ({
-        "CO2": 0,
-        "CH4": 0,
-        "Fluorocarbons": 0,
-        "N2O": 0
-    }));
-    emissionData[code].emissionDataBySector = new Array(54).fill().map(_ => ({
-        "Agriculture": 0,
-        "Buildings": 0,
+    emissionData[code].emissionDataBySubstance = new Array(54)
+        .fill()
+        .map((_) => ({
+            CO2: 0,
+            CH4: 0,
+            Fluorocarbons: 0,
+            N2O: 0,
+        }));
+    emissionData[code].emissionDataBySector = new Array(54).fill().map((_) => ({
+        Agriculture: 0,
+        Buildings: 0,
         "Fuel Exploitation": 0,
         "Industrial Combustion": 0,
         "Power Industry": 0,
-        "Processes": 0,
-        "Transport": 0,
-        "Waste": 0,
+        Processes: 0,
+        Transport: 0,
+        Waste: 0,
     }));
 }
 
@@ -285,7 +287,9 @@ function render() {
 
         let mouseClick = function (_, d) {
             if (countryCodeMap[d.properties.name]) {
-                document.getElementById("visualization-revert-button").style.display = 'block';
+                document.getElementById(
+                    "visualization-revert-button"
+                ).style.display = "block";
                 currentCountry = d.properties.name;
                 update(true, false);
             }
@@ -314,15 +318,15 @@ function render() {
             .on("mouseleave", mouseLeave)
             .on("click", mouseClick);
 
-            // document.getElementById('total-ghg-emissions-id').innerText = emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
-            // document.getElementById('visualization-title').innerText = `Global Emission Analysis (${year})`;
-            // chart1.data.datasets[0].data = emissionData["GLOBAL"].emissionDataByYear;
-            // chart2.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySubstance);
-            // chart3.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySector);
+        // document.getElementById('total-ghg-emissions-id').innerText = emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
+        // document.getElementById('visualization-title').innerText = `Global Emission Analysis (${year})`;
+        // chart1.data.datasets[0].data = emissionData["GLOBAL"].emissionDataByYear;
+        // chart2.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySubstance);
+        // chart3.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySector);
 
-            // chart1.update();
-            // chart2.update();
-            // chart3.update();
+        // chart1.update();
+        // chart2.update();
+        // chart3.update();
     });
 }
 
@@ -331,18 +335,26 @@ d3.csv(
     function (d) {
         if (emissionData[d.Code]) {
             for (let i = 0; i < 54; i++) {
-                emissionData[d.Code].emissionDataByYear[i] += +d[(1970 + i).toString()];
-                emissionData["GLOBAL"].emissionDataByYear[i] += +d[(1970 + i).toString()];
+                emissionData[d.Code].emissionDataByYear[i] +=
+                    +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataByYear[i] +=
+                    +d[(1970 + i).toString()];
 
-                emissionData[d.Code].emissionDataBySubstance[i][d["Substance"]] += +d[(1970 + i).toString()];
-                emissionData["GLOBAL"].emissionDataBySubstance[i][d["Substance"]] += +d[(1970 + i).toString()];
+                emissionData[d.Code].emissionDataBySubstance[i][
+                    d["Substance"]
+                ] += +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataBySubstance[i][
+                    d["Substance"]
+                ] += +d[(1970 + i).toString()];
 
-                emissionData[d.Code].emissionDataBySector[i][d["Sector"]] += +d[(1970 + i).toString()];
-                emissionData["GLOBAL"].emissionDataBySector[i][d["Sector"]] += +d[(1970 + i).toString()];
+                emissionData[d.Code].emissionDataBySector[i][d["Sector"]] +=
+                    +d[(1970 + i).toString()];
+                emissionData["GLOBAL"].emissionDataBySector[i][d["Sector"]] +=
+                    +d[(1970 + i).toString()];
             }
         }
     }
-).then(function() {
+).then(function () {
     update(false, true);
 });
 
@@ -351,7 +363,10 @@ d3.csv(
 // let emissionDataBySector;
 
 function update(openPanel, refresh) {
-    if (openPanel && document.getElementById("visualization-id").classList.contains("closed")) {
+    if (
+        openPanel &&
+        document.getElementById("visualization-id").classList.contains("closed")
+    ) {
         document.getElementById("visualization-id").classList.remove("closed");
     }
     if (refresh) {
@@ -359,27 +374,49 @@ function update(openPanel, refresh) {
     }
     if (currentCountry) {
         const countryCode = countryCodeMap[currentCountry];
-        document.getElementById('total-ghg-emissions-id').innerText = emissionData[countryCode].emissionDataByYear[+year - 1970].toFixed(2);
-        document.getElementById('visualization-title').innerText = `${currentCountry}'s Emission Analysis (${year})`;
-        chart1.data.datasets[0].data = emissionData[countryCode].emissionDataByYear;
-        chart2.data.datasets[0].data = Object.values(emissionData[countryCode].emissionDataBySubstance[+(year - 1970)]);
-        chart3.data.datasets[0].data = Object.values(emissionData[countryCode].emissionDataBySector[+(year - 1970)]);
-
+        document.getElementById("total-ghg-emissions-id").innerText =
+            emissionData[countryCode].emissionDataByYear[+year - 1970].toFixed(
+                2
+            );
+        document.getElementById(
+            "visualization-title"
+        ).innerText = `${currentCountry}'s Emission Analysis (${year})`;
+        chart1.data.datasets[0].data =
+            emissionData[countryCode].emissionDataByYear;
+        chart2.data.datasets[0].data = Object.values(
+            emissionData[countryCode].emissionDataBySubstance[+(year - 1970)]
+        );
+        chart3.data.datasets[0].data = Object.values(
+            emissionData[countryCode].emissionDataBySector[+(year - 1970)]
+        );
     } else {
-        document.getElementById('total-ghg-emissions-id').innerText = emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
-        document.getElementById('visualization-title').innerText = `Global Emission Analysis (${year})`;
-        chart1.data.datasets[0].data = emissionData["GLOBAL"].emissionDataByYear;
-        chart2.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySubstance[+(year - 1970)]);
-        chart3.data.datasets[0].data = Object.values(emissionData["GLOBAL"].emissionDataBySector[+(year - 1970)]);
+        document.getElementById("total-ghg-emissions-id").innerText =
+            emissionData["GLOBAL"].emissionDataByYear[+year - 1970].toFixed(2);
+        document.getElementById(
+            "visualization-title"
+        ).innerText = `Global Emission Analysis (${year})`;
+        chart1.data.datasets[0].data =
+            emissionData["GLOBAL"].emissionDataByYear;
+        chart2.data.datasets[0].data = Object.values(
+            emissionData["GLOBAL"].emissionDataBySubstance[+(year - 1970)]
+        );
+        chart3.data.datasets[0].data = Object.values(
+            emissionData["GLOBAL"].emissionDataBySector[+(year - 1970)]
+        );
     }
     chart1.update();
     chart2.update();
     chart3.update();
 }
 
+function onVisualizationCloseClick() {
+    document.getElementById("visualization-id").classList.add("closed");
+}
+
 function onVisualizationRevertClick() {
     if (currentCountry) {
-        document.getElementById("visualization-revert-button").style.display = 'none';
+        document.getElementById("visualization-revert-button").style.display =
+            "none";
         currentCountry = undefined;
         update(true, false);
     }

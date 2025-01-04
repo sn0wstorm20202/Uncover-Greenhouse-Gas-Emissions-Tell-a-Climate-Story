@@ -47,7 +47,7 @@ let chart2 = new Chart(ctx2, {
         datasets: [
             {
                 label: "Emission Qty. in Mt CO₂eq",
-                data: [0,0,0,0],
+                data: [0, 0, 0, 0],
                 borderWidth: 1,
             },
         ],
@@ -84,7 +84,7 @@ let chart3 = new Chart(ctx3, {
         datasets: [
             {
                 label: "Emission Qty. in Mt CO₂eq",
-                data: [0,0,0,0,0,0,0,0],
+                data: [0, 0, 0, 0, 0, 0, 0, 0],
                 borderWidth: 1,
             },
         ],

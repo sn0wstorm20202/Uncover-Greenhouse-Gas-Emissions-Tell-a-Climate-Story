@@ -25,10 +25,10 @@ let map = L.map("emission-map").setView([0, 0], 1.48);
 //          .addTo(map);
 
 map.addLayer(
-    L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    L.tileLayer("http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", {
         maxZoom: 18,
-        attribution: '© Google',
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        attribution: "© Google",
+        subdomains: ["mt0", "mt1", "mt2", "mt3"],
     })
 );
 

@@ -25,17 +25,16 @@ function menuToggle() {
     }
 }
 
-function onVisualizationCloseClick() {
-    document.getElementById("visualization-id").classList.add("closed");
-}
-
 function jumpTo(name) {
-    window.scrollTo(0, {
-        home: 0,
-        introduction: document.body.offsetHeight,
-        impact: 8.5 * document.body.offsetHeight,
-        analysis: 15.7 * document.body.offsetHeight,
-        solution: 23.01 * document.body.offsetHeight,
-        reference: 28.92 * document.body.offsetHeight,
-    }[name]);
+    window.scrollTo(
+        0,
+        {
+            home: 0,
+            introduction: document.body.offsetHeight,
+            impact: 8.5 * document.body.offsetHeight,
+            analysis: 15.72 * document.body.offsetHeight,
+            solution: 23.01 * document.body.offsetHeight,
+            reference: 28.93 * document.body.offsetHeight,
+        }[name]
+    );
 }
